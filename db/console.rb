@@ -2,23 +2,41 @@ require("pry")
 require_relative("../models/albums")
 require_relative("../models/artists")
 
-# album1 = Album.new({
-#   "album_name" => "Back to Black",
-#   "year" => 2006
-#   })
-#
-# album1.save()
-#
+Album.delete_all()
+Artist.delete_all()
+artist1 = Artist.new({
+  "artist_name" => "Amy Winehouse"
+  })
+
+artist1.save()
+
+artist2 = Artist.new({
+  "artist_name" => "Oasis"
+  })
+
+artist2.save()
+
+list = Artist.list_names()
+album1 = Album.new({
+  "album_name" => "Back to Black",
+  "genre" => "Britpop",
+  "artist_id" => artist2.id
+  })
+
+album1.save()
+
 # album2 = Album.new({
 #   "album_name" => "Don't Look Back in Anger",
-#   "year" => 1995
+#   "genre" => "Soul",
+#   "artist_id" => artist1.id
 #   })
 #
 # album2.save()
 #
 # album3 = Album.new({
 #   "album_name" => "Be Here Now",
-#   "year" => 1997
+#   "genre" => "Britpop",
+#   "artist_id" => artist2.id
 #   })
 #
 # album3.save()
